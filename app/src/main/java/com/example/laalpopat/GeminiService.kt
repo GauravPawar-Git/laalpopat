@@ -15,7 +15,7 @@ object GeminiService {
 
     private val model = GenerativeModel(
         modelName = "models/gemini-2.5-flash",
-        apiKey = "AIzaSyAaekoxZ3xRazu96ixHhKGnCxmVMsnepBg"
+        apiKey = BuildConfig.GEMINI_API_KEY
     )
 
     suspend fun generateStory(

@@ -139,19 +139,6 @@ fun ZoomableHomeworkImage(
                     )
                 }
             }
-
-            IconButton(
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(16.dp),
-                onClick = onClose
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Close,
-                    contentDescription = null,
-                    tint = Color.White
-                )
-            }
         }
     }
 }

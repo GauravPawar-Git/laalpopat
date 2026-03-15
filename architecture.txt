@@ -1,0 +1,123 @@
+For a hackathon submission, an **architecture diagram should clearly show how data flows from the student to the AI and back to the app UI**. Since your project is an **Android app with AI homework analysis**, the architecture can be shown in **3 layers**:
+
+* **Client (Android App)**
+* **AI Processing / Backend**
+* **AI Model**
+
+Below is a **clean architecture diagram you can paste directly into Markdown (Mermaid supported by many hackathon platforms like Devpost/GitHub).**
+
+---
+
+# 🏗 Architecture Diagram
+
+```mermaid
+flowchart LR
+
+A[Student] --> B[Android App - Jetpack Compose UI]
+
+B --> C[Camera / Gallery Upload]
+C --> D[Image Preprocessing]
+
+D --> E[Send Homework Image to AI API]
+
+E --> F[AI Homework Analysis Service]
+
+F --> G[Vision Model / LLM]
+G --> H[Detect Mistakes + Generate Feedback]
+
+H --> I[Return Structured JSON Response]
+
+I --> J[Android App]
+
+J --> K[Render Homework Review UI]
+
+K --> L[Canvas Overlay Markers]
+K --> M[Correction Explanation Cards]
+K --> N[Zoomable Image Preview]
+
+L --> O[Student Reviews Mistakes]
+M --> O
+N --> O
+```
+
+---
+
+# 🧠 Architecture Explanation
+
+### 1️⃣ Client Layer (Android App)
+
+Built using:
+
+* **Kotlin**
+* **Jetpack Compose**
+* **Coil AsyncImage**
+* **Canvas API**
+
+Responsibilities:
+
+* Capture homework image (camera/gallery)
+* Send image to AI service
+* Display corrections on image
+* Show explanations and feedback
+
+---
+
+### 2️⃣ AI Processing Layer
+
+The AI service:
+
+1. Receives homework image
+2. Analyzes text and answers
+3. Detects mistakes
+4. Generates feedback
+
+Example response:
+
+```json
+{
+  "overall_result": "incorrect",
+  "marks": [
+    {
+      "x": 0.42,
+      "y": 0.55,
+      "comment": "Spelling mistake",
+      "correction": "went"
+    }
+  ]
+}
+```
+
+---
+
+### 3️⃣ Visualization Layer
+
+The Android app converts coordinates into screen positions:
+
+```
+cx = imageWidth * x
+cy = imageHeight * y
+```
+
+Then draws markers using **Canvas overlay**.
+
+This creates the effect of **AI marking the paper like a teacher**.
+
+---
+
+# 📊 Simplified Architecture (For Presentation Slide)
+
+You can also show a simpler version in slides:
+
+```
+Student
+   ↓
+Android App (Camera + UI)
+   ↓
+AI Homework Analysis API
+   ↓
+Mistake Detection + Explanation
+   ↓
+Response with Coordinates
+   ↓
+App draws markers on homework image
+```
