@@ -311,3 +311,22 @@ Correct sentence: She went to school yesterday.
 * **marker coordinate system**
 * **student self-assessment capability**
 * **full UI interaction**
+
+
+📖 Story Illustration (Experimental)
+
+The storytelling module currently focuses on generating a structured five-page story experience for children.
+
+Each page contains short, easy-to-read text designed for young learners.
+
+Image generation for story illustrations was partially implemented during development. However, due to rate limits from external image generation APIs during the hackathon environment, automatic illustration generation has been temporarily disabled to ensure a stable demo experience.
+
+Future versions will include:
+
+AI-generated illustrations for each story page
+
+consistent character design across slides
+
+enhanced visual storytelling for children
+
+Despite this limitation, the storytelling feature still demonstrates how generative AI can help encourage creativity, reading practice, and imagination for students.
